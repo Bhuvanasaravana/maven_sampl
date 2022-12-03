@@ -1,11 +1,13 @@
 
-// a.groovy
 import groovy.transform.Field
-
-@Field
-def LOADED_BUILD_NUMBER = "${env.BUILD_NUMBER}"
-
-return this
+@Field final SOMETHING='bar'
+@Field final MY_CONSTANT="foo $SOMETHING"
+node() {
+  do_stuff()
+}
+def do_stuff() {
+  sh "echo $MY_CONSTANT"
+}
 node('slave_1'){
     agent any
      stages{
