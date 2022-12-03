@@ -17,3 +17,8 @@ public class Greeter {
     return String.format("Hello, %s!", someone);
   }
 }
+try {
+                ((Script) receiver).getBinding().getVariable(property); // do not let it go to Script.super.getProperty
+                return super.onGetProperty(invoker, receiver, property);
+            } catch (MissingPropertyException x) {
+                if (receiver.getClass() != Script.class) { // Only check declared fields of subclasses, not Script itself
