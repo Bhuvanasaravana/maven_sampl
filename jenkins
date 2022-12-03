@@ -1,0 +1,12 @@
+node('slave_1'){
+    agent any
+     stages{
+         stage("Git Checkout"){
+             steps{
+                git 'https://github.com/Bhuvanasaravana/maven_sampl.git' 
+             }
+         }
+        
+         }
+         
+     }
